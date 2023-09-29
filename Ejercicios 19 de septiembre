@@ -1,0 +1,364 @@
+package ejercicios_19_septiembre;
+
+import java.util.*;
+import javax.swing.JOptionPane;
+
+public class Ejercicios_19_septiembre {
+
+    public static void main(String[] args) {
+        int opc, opc2;
+        String letra, numero;
+
+        Set<String> A = new HashSet<>(Arrays.asList("1", "2", "3", "4"));
+        Set<String> B = new HashSet<>(Arrays.asList("4", "5"));
+        Set<String> X = new HashSet<>(Arrays.asList("a", "b", "c", "d"));
+        Set<String> Y = new HashSet<>(Arrays.asList("b", "c", "d"));
+        Set<String> U = new HashSet<>(Arrays.asList("1", "2", "3", "4", "5"));
+        Set<String> U2 = new HashSet<>(Arrays.asList("a", "b", "c", "d", "e"));
+
+        do {
+            opc = Integer.parseInt(JOptionPane.showInputDialog("¿Que desea hacer? \n 1. Union \n 2. Interseccion \n 3. Diferencia \n 4. Complemento"
+                    + "\n 5. Pertenece \n 6. No pertenece \n 7. Subconjunto \n 8. Subconjunto propio \n 9. Conjunto universal"));
+            
+            if (opc > 0 && opc <= 9) {
+                switch (opc) {
+                    case 1:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de union desea ver? \n 1. AuB \n 2. XuY \n 3. AuX"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        Set<String> UN = new HashSet<>(A);
+                                        UN.addAll(B);
+                                        System.out.println("A = " + A);
+                                        System.out.println("B = " + B);
+                                        System.out.println("Unión AuB: " + UN);
+                                    break;
+
+                                    case 2:
+                                        Set<String> UL = new HashSet<>(X);
+                                        UL.addAll(Y);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Y = " + Y);
+                                        System.out.println("Unión: " + UL);
+                                    break;
+
+                                    case 3:
+                                        Set<String> UM = new HashSet<>(A);
+                                        UM.addAll(X);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Unión: " + UM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+
+                    case 2:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de Interseccion desea ver? \n 1. AnB \n 2. XnY \n 3. AnX"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        Set<String> IN = new HashSet<>(A);
+                                        IN.retainAll(B);
+                                        System.out.println("A = " + A);
+                                        System.out.println("B = " + B);
+                                        System.out.println("Intersección: " + IN);
+                                    break;
+
+                                    case 2:
+                                        Set<String> IL = new HashSet<>(X);
+                                        IL.retainAll(Y);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Y = " + Y);
+                                        System.out.println("Intersección: " + IL);
+                                    break;
+
+                                    case 3:
+                                        Set<String> IM = new HashSet<>(A);
+                                        IM.retainAll(X);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Interseccion: " + IM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 3:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de diferencia desea ver? \n 1. A-B \n 2. X-Y \n 3. A-X"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        Set<String> DN = new HashSet<>(A);
+                                        DN.removeAll(B);
+                                        System.out.println("A = " + A);
+                                        System.out.println("B = " + B);
+                                        System.out.println("Intersección: " + DN);
+                                    break;
+
+                                    case 2:
+                                        Set<String> DL = new HashSet<>(X);
+                                        DL.removeAll(Y);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Y = " + Y);
+                                        System.out.println("Intersección: " + DL);
+                                    break;
+
+                                    case 3:
+                                        Set<String> DM = new HashSet<>(A);
+                                        DM.removeAll(X);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Interseccion: " + DM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 4:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de complemento desea ver? \n 1. A' \n 2. X' Con letras \n 3. X' Con numeros"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        Set<String> CN = new HashSet<>(U);
+                                        CN.removeAll(A);
+                                        System.out.println("U = " + U);
+                                        System.out.println("A = " + A);
+                                        System.out.println("Complemento de A: " + CN);
+                                    break;
+
+                                    case 2:
+                                        Set<String> CL = new HashSet<>(U2);
+                                        CL.removeAll(X);
+                                        System.out.println("U = " + U2);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Complemento de X: " + CL);
+                                    break;
+
+                                    case 3:
+                                        Set<String> CM = new HashSet<>(U);
+                                        CM.removeAll(X);
+                                        System.out.println("U = " + U);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Complemento de X: " + CM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 5:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de Pertenencia desea ver? \n 1. Pertenece a conjunto A"
+                                    + " \n 2. Pertenece al conjunto X \n 3. Combinado"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        numero = JOptionPane.showInputDialog("Inserte un numero");
+                                        boolean PN = A.contains(numero);
+                                        System.out.println("Numero elegido = " + numero);
+                                        System.out.println("A = " + A);
+                                        System.out.println(numero + " pertenece al conjunto A: " + PN);
+                                    break;
+
+                                    case 2:
+                                        letra = JOptionPane.showInputDialog("Inserte una letra");
+                                        boolean PL = X.contains(letra);
+                                        System.out.println("Letra elegida = " + letra);
+                                        System.out.println("X = " + X);
+                                        System.out.println(letra + " pertenece al conjunto X: " + PL);
+                                    break;
+
+                                    case 3:
+                                        numero = JOptionPane.showInputDialog("Inserte un numero");
+                                        letra = JOptionPane.showInputDialog("Inserte una letra");
+                                        boolean PNM = A.contains(numero);
+                                        boolean PLM = X.contains(letra);
+                                        System.out.println("Numero elegido = " + numero);
+                                        System.out.println("Letra elegida = " + letra);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println(numero + " pertenece al conjunto A: " + PNM);
+                                        System.out.println(letra + " pertenece al conjunto X: " + PLM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 6:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de No pertenencia desea ver? \n 1. No pertenece a conjunto B"
+                                    + " \n 2. No pertenece al conjunto Y \n 3. Combinado"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        numero = JOptionPane.showInputDialog("Inserte un numero");
+                                        boolean NPN = !B.contains(numero);
+                                        System.out.println("Numero elegido = " + numero);
+                                        System.out.println("B = " + B);
+                                        System.out.println(numero + " no pertenece al conjunto B: " + NPN);
+                                    break;
+
+                                    case 2:
+                                        letra = JOptionPane.showInputDialog("Inserte una letra");
+                                        boolean NPL = !Y.contains(letra);
+                                        System.out.println("Letra elegida = " + letra);
+                                        System.out.println("Y = " + Y);
+                                        System.out.println(letra + " no pertenece al conjunto Y: " + NPL);
+                                    break;
+
+                                    case 3:
+                                        numero = JOptionPane.showInputDialog("Inserte un numero");
+                                        letra = JOptionPane.showInputDialog("Inserte una letra");
+                                        boolean PNM = !A.contains(numero);
+                                        boolean PLM = !X.contains(letra);
+                                        System.out.println("Numero elegido = " + numero);
+                                        System.out.println("Letra elegida = " + letra);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println(numero + " no pertenece al conjunto A: " + PNM);
+                                        System.out.println(letra + " no pertenece al conjunto X: " + PLM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 7:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de Subconjunto desea ver? \n 1. A subconjunto de B"
+                                    + " \n 2. X subconjunto de Y \n 3. A subconjunto de X"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        boolean SN = A.containsAll(B);
+                                        System.out.println("A = " + A);
+                                        System.out.println("B = " + B);
+                                        System.out.println("A es subconjunto o igual a B: " + SN);
+                                    break;
+
+                                    case 2:
+                                        boolean SL = X.containsAll(Y);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Y = " + Y);
+                                        System.out.println("X es subconjunto o igual a Y: " + SL);
+                                    break;
+
+                                    case 3:
+                                        boolean SM = A.containsAll(X);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println("A es subconjunto o igual a X: " + SM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 8:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de Subconjunto propio desea ver? \n 1. A subconjunto propio de B"
+                                    + " \n 2. X subconjunto propio de Y \n 3. A subconjunto propio de B"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        boolean SPN = A.containsAll(B) && !A.equals(B);
+                                        System.out.println("A = " + A);
+                                        System.out.println("B = " + B);
+                                        System.out.println("A es subconjunto propio de B: " + SPN);
+                                    break;
+
+                                    case 2:
+                                        boolean SPL = X.containsAll(Y) && !X.equals(Y);
+                                        System.out.println("X = " + X);
+                                        System.out.println("Y = " + Y);
+                                        System.out.println("X es subconjunto propio de Y: " + SPL);                                        
+                                    break;
+
+                                    case 3:
+                                        boolean SPM = A.containsAll(X) && !A.equals(X);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println("A es subconjunto propio de X: " + SPM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                    
+                    case 9:
+                        do {
+                            opc2 = Integer.parseInt(JOptionPane.showInputDialog("¿Que ejercicio de Conjunto universal desea ver? \n 1. Conjunto A"
+                                    + " \n 2. Conjunto X \n 3. Conjunto A y conjunto X"));
+
+                            if (opc2 > 0 && opc2 <= 3) {
+                                switch (opc2) {
+                                    case 1:
+                                        boolean IN = U.containsAll(A);
+                                        System.out.println("A = " + A);
+                                        System.out.println("U = " + U);
+                                        System.out.println("A es subconjunto del conjunto universal: " + IN);                                        
+                                    break;
+
+                                    case 2:
+                                        boolean IL = U2.containsAll(X);
+                                        System.out.println("X = " + X);
+                                        System.out.println("V = " + U2);
+                                        System.out.println("X es subconjunto del conjunto universal: " + IL);                                        
+                                    break;
+
+                                    case 3:
+                                        boolean INM = U.containsAll(A);
+                                        boolean ILM = U2.containsAll(X);
+                                        System.out.println("A = " + A);
+                                        System.out.println("X = " + X);
+                                        System.out.println("U = " + U);
+                                        System.out.println("V = " + U2);
+                                        System.out.println("A es subconjunto del conjunto universal: " + INM);
+                                        System.out.println("X es subconjunto del conjunto universal: " + ILM);
+                                    break;
+                                }
+                            }else{
+                                System.out.println("Ingrese un numero valido");
+                            }
+                        }while (opc2 <= 0 || opc2 > 3);
+                    break;
+                }
+            }else{
+                System.out.println("Ingrese un numero valido");
+            }
+        } while (opc <= 0 || opc > 9);
+    }
+}
